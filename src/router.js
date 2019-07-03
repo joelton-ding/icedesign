@@ -1,19 +1,24 @@
 /**
  * 定义应用路由
  */
-import React from 'react'
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import UserLayout from './layouts/UserLayout';
+import BasicLayout from './layouts/BasicLayout';
 
 // 按照 Layout 分组路由
 // UserLayout 对应的路由：/user/xxx
+// BasicLayout 对应的路由：/xxx
 const router = () => {
-  return(
+  return (
     <HashRouter>
       <Switch>
         <Route path="/user" component={UserLayout} />
+        <Route path="/news" component={BasicLayout} />
+        <Redirect from="/" to="/news/index" />
       </Switch>
     </HashRouter>
-  )
-}
+  );
+};
 
-export default router()
+export default router();
